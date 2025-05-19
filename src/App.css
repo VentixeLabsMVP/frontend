@@ -29,57 +29,57 @@
   --yellow-100: #FFCA39;
   --yellow-90: #FFEFC3;
 
-  --gray-10: #FFFFFF;
-  --gray-20: #F7F7F7;
-  --gray-30: #EDEDED;
-  --gray-40: #E0E0E1;
-  --gray-50: #C3C3C4;
-  --gray-60: #9F9FA1;
-  --gray-70: #777779;
-  --gray-80: #636365;
-  --gray-90: #434345;
-  --gray-100: #1E1E20;
+  --grey-10: #FFFFFF;
+  --grey-20: #F7F7F7;
+  --grey-30: #EDEDED;
+  --grey-40: #E0E0E1;
+  --grey-50: #C3C3C4;
+  --grey-60: #9F9FA1;
+  --grey-70: #777779;
+  --grey-80: #636365;
+  --grey-90: #434345;
+  --grey-100: #1E1E20;
 
-  --cool-gray-10: #EEEFFF;
-  --cool-gray-20: #E4E5F5;
-  --cool-gray-30: #DDDEED;
-  --cool-gray-40: #D1D2E0;
-  --cool-gray-50: #B0B1BD;
-  --cool-gray-60: #8F8F99;
-  --cool-gray-70: #72737A;
-  --cool-gray-80: #56565C;
-  --cool-gray-90: #39393D;
-  --cool-gray-100: #131314;
+  --cool-grey-10: #EEEFFF;
+  --cool-grey-20: #E4E5F5;
+  --cool-grey-30: #DDDEED;
+  --cool-grey-40: #D1D2E0;
+  --cool-grey-50: #B0B1BD;
+  --cool-grey-60: #8F8F99;
+  --cool-grey-70: #72737A;
+  --cool-grey-80: #56565C;
+  --cool-grey-90: #39393D;
+  --cool-grey-100: #131314;
 
   --headline-color: var(--secondary-100);
-  --text-color: var(--gray-100);
-  --text-muted-color: var(--gray-60);
-  --background-color: var(--gray-10);
+  --text-color: var(--grey-100);
+  --text-muted-color: var(--grey-60);
+  --background-color: var(--grey-10);
 
-  --nav-background-color: var(--cool-gray-20);
-  --header-background-color: var(--gray-20);
-  --main-background-color: var(--gray-20);
-  --footer-background-color: var(--gray-20);
-  --section-background-color: var(--gray-20);
+  --nav-background-color: var(--cool-grey-20);
+  --header-background-color: var(--grey-20);
+  --main-background-color: var(--grey-20);
+  --footer-background-color: var(--grey-20);
+  --section-background-color: var(--grey-20);
 
-  --border-color: var(--gray-40);
+  --border-color: var(--grey-40);
 
-  --separator-border-color: var(--gray-40);
-  --separator-text-color: var(--gray-60);
-  --separator-background-color: var(--gray-10);
+  --separator-border-color: var(--grey-40);
+  --separator-text-color: var(--grey-60);
+  --separator-background-color: var(--grey-10);
   /* link */
       --link-color: var(--primary-100);
       --link-hover-color: var(--primary-90);
 
   /* card */
-      --card-background-color: var(--gray-10);
-      --card-border-color: var(--gray-20);
+      --card-background-color: var(--grey-10);
+      --card-border-color: var(--grey-20);
 
   /* button */
-      --button-text-color: var(--gray-90);
+      --button-text-color: var(--grey-90);
       --button-border-color: transparent;
       --button-background-color: transparent;
-      --button-hover-text-color: var(--gray-90);
+      --button-hover-text-color: var(--grey-90);
       --button-hover-border-color: transparent;
       --button-hover-background-color: transparent;
 
@@ -90,32 +90,32 @@
       --button-link-hover-border-color: transparent;
       --button-link-hover-background-color: transparent;
 
-      --button-primary-text-color: var(--gray-10);
+      --button-primary-text-color: var(--grey-10);
       --button-primary-border-color: var(--primary-100);
       --button-primary-background-color: var(--primary-100);
-      --button-primary-hover-text-color: var(--gray-10);
+      --button-primary-hover-text-color: var(--grey-10);
       --button-primary-hover-border-color: var(--primary-90);
       --button-primary-hover-background-color: var(--primary-90);
 
       --button-secondary-text-color: var(--secondary-100);
-      --button-secondary-border-color: var(--cool-gray-10);
-      --button-secondary-background-color: var(--cool-gray-10);
+      --button-secondary-border-color: var(--cool-grey-10);
+      --button-secondary-background-color: var(--cool-grey-10);
 
-      --button-outline-text-color: var(--gray-90);
-      --button-outline-border-color: var(--gray-30);
+      --button-outline-text-color: var(--grey-90);
+      --button-outline-border-color: var(--grey-30);
       --button-outline-background-color: transparent;
   /* input */
-      --input-background-color: var(--gray-10);
-      --input-border-color: var(--gray-40);
+      --input-background-color: var(--grey-10);
+      --input-border-color: var(--grey-40);
       --input-border-focus-color: var(--primary-50);
-      --input-text-color: var(--gray-100);
-      --input-placeholder-color: var(--gray-50);
+      --input-text-color: var(--grey-100);
+      --input-placeholder-color: var(--grey-50);
 /* checkbox */
-      --checkbox-background-color: var(--gray-10);
-      --checkbox-border-color: var(--gray-40);
+      --checkbox-background-color: var(--grey-10);
+      --checkbox-border-color: var(--grey-40);
       --checkbox-checked-background-color: var(--primary-100);
       --checkbox-checked-border-color: var(--primary-100);
-      --checkbox-checked-text-color: var(--gray-10);
+      --checkbox-checked-text-color: var(--grey-10);
 }
 
 html,body {
@@ -142,15 +142,18 @@ html,body {
                         "main"
                         "footer";
   height: 100dvh;
+    header {
+    display: none;
+  }
 
-  @media(width >= 768px){
-  grid-template-columns: 250px 1fr;
+  @media(min-width: 768px){
+  grid-template-columns: 150px 1fr;
   grid-template-areas:  "nav header"
                         "nav main"
                         "nav footer"
   }
-  @media(width >= 1400px) {
-  grid-template-columns: 80px 1fr;
+  @media(min-width: 1400px) {
+  grid-template-columns: 250px 1fr;
   grid-template-areas:  "nav header"
                         "nav main"
                         "nav footer"
@@ -183,4 +186,27 @@ footer {
   background-color: var(--footer-background-color);
   border-radius: 1rem;
   padding: 1.5rem;
+}
+
+.logo-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0rem 4rem 0 3rem;
+}
+.logo-img{
+  height: 24px;
+  width: 24px;
+}
+
+.logo-text{
+  font-family: var(--font);
+  color: var(--secondary-100);
+  font-size: 2rem;
+}
+@media (max-width: 768px) {
+  .logo-text {
+    display: none;
+  }
 }
