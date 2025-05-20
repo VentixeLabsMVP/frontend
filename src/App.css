@@ -56,7 +56,7 @@
   --text-muted-color: var(--grey-60);
   --background-color: var(--grey-10);
 
-  --nav-background-color: var(--cool-grey-20);
+  --nav-background-color: var(--cool-grey-10);
   --header-background-color: var(--grey-20);
   --main-background-color: var(--grey-20);
   --footer-background-color: var(--grey-20);
@@ -209,4 +209,53 @@ footer {
   .logo-text {
     display: none;
   }
+}
+
+.nav-links {
+  margin-top: 2rem;
+  display: grid;
+  row-gap: 2rem;
+  padding: 1rem;
+}
+
+.nav-link {
+  position: relative;
+  display: flex;
+  align-items: center;
+  column-gap: 2rem;
+  padding: 1rem 0 1rem 2rem;
+  cursor: pointer;
+  text-decoration: none;
+  color: var(--secondary-100);
+}
+
+.nav-icon,
+.nav-text {
+  transition: color 150ms ease-in-out, font-weight 150ms ease-in-out;
+}
+
+.nav-link::before {
+  content: '';
+  position: absolute;
+  top: 12px;
+  left: 0;
+  width: 6px;
+  height: 50%;
+  background-color: transparent;
+  border-radius: 0 4px 4px 0;
+  transition: background-color 150ms ease-in-out;
+}
+
+.nav-link:hover::before,
+.nav-link:focus::before,
+.nav-link.active::before {
+  background-color: var(--primary-100);
+}
+
+.nav-link:hover .nav-icon,
+.nav-link:focus .nav-icon,
+.nav-link:hover .nav-text,
+.nav-link:focus .nav-text {
+  color: var(--primary-100);
+  font-weight: 600;
 }
