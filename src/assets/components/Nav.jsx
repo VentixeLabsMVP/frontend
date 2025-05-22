@@ -3,7 +3,9 @@ import logo from '../images/logo_ventixe.svg'
 import { NavLink } from 'react-router-dom'
 import PrimaryButton from './PrimaryButton'
 
-const Nav = () => {
+
+//send in modal as props inside () with {}
+const Nav = ({onHamburgerClick}) => {
   return (
     <nav>
       <div className="nav-content">
@@ -12,7 +14,7 @@ const Nav = () => {
           <span className="logo-text">Ventixe</span>
         </div>
         <div className="menu-container">
-          <div className="hamb-menu">
+          <div className="hamb-menu" onClick={onHamburgerClick}>
             <i className="fa-solid fa-bars"></i>
           </div>
         </div>
