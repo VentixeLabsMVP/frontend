@@ -1,9 +1,12 @@
-const DropDownMenuModal = ({ isOpen, onClose}) => {
-  if(!isOpen) return null;
+import { useEffect, useState } from "react";
+
+
+const DropDownMenuModal = ({ isOpen, onClose }) => {
+
 
   return (
-    <div className={`DropDownMenuModal ${isOpen ? 'active' : ''}`}>
-      <div className={`DropDownMenu-card ${isOpen ? 'active' : ''}`}>
+  <div className={`DropDownMenuModal ${isOpen ? "active" : ""}`} style={{ pointerEvents: isOpen ? "auto" : "none" }}>
+    <div className={`DropDownMenu-card ${isOpen ? "active" : ""}`}>
         <button className="btn-close" onClick={onClose}>X</button>
 
         <div className="account-container">
