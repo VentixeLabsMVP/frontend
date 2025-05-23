@@ -15,7 +15,7 @@ const Portallayout = () => {
     <div className="portal-wrapper">
       <Nav onHamburgerClick={() => setIsMenuOpen(true)} />
         <DropDownMenuModal isOpen={isMenuOpen} onClose={() => setIsMenuOpen(false)} />
-      <Header />
+      <Header onHamburgerClick={() => setIsMenuOpen(true)} />
       <main>
         <Outlet />{/* work like render-body in MVC */}
       </main>

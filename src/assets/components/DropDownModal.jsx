@@ -7,7 +7,9 @@ const DropDownMenuModal = ({ isOpen, onClose }) => {
   return (
   <div className={`DropDownMenuModal ${isOpen ? "active" : ""}`} style={{ pointerEvents: isOpen ? "auto" : "none" }}>
     <div className={`DropDownMenu-card ${isOpen ? "active" : ""}`}>
-        <button className="btn-close" onClick={onClose}>X</button>
+        <button className="btn-close" onClick={onClose}>
+          <i className="fa-solid fa-xmark-large"></i>
+        </button>
 
         <div className="account-container">
           <div className="account-header">
@@ -22,7 +24,9 @@ const DropDownMenuModal = ({ isOpen, onClose }) => {
 
 
         <div className="menu-log-out-container">
-          <button className="drop-down-btn">LogOut</button>
+          <button className="drop-down-btn">
+            <span className="logout-text">LogOut</span>
+          </button>
         </div>
       </div>
     </div>
