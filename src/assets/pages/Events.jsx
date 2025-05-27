@@ -21,11 +21,10 @@ return (
 
     {events.map(event => (
     <EventCard
-      key={event.id}
-      title={event.title}
-      date={event.date}
-      location={event.location}
-      price={event.price}
+  key={event.id}
+  title={event.eventName}
+  location={event.description}
+  price={`$${event.price}`}
     />
   ))}
       <EventCard
@@ -55,8 +54,6 @@ return (
     </section>
 )
 
-    
-  
 }
 
 export default Events
