@@ -6,7 +6,7 @@ const Events = () => {
     <section className="event-section">
 
       <EventCard
-        title="Fruddeluxlaxen"
+        title="new commit hello"
         date="September 13, 2026"
         location="Basketorp713"
         price="$30"
