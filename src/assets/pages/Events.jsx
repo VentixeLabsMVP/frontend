@@ -22,8 +22,8 @@ return (
     {events.map(event => (
     <EventCard
   key={event.id}
-  title={event.eventName}
-  location={event.description}
+  eventname={event.eventName}
+  description={event.description}
   price={`$${event.price}`}
     />
   ))}
