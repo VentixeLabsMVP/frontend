@@ -1,10 +1,33 @@
 import EventCard from '../components/EventCard.jsx'
+import { useEffect, useState } from "react";
+import axios from "axios";
+
+
 
 const Events = () => {
-  return (
-    
-    <section className="event-section">
+  const [events, setEvents] = useState([]);
 
+  useEffect(() => {
+    axios.get("https://eventprovider-win24-cvb2h4heesbxauaj.swedencentral-01.azurewebsites.net/api/event") // byt till din riktiga URL
+      .then(res => setEvents(res.data))
+      .catch(err => console.error(err));
+  }, []);
+    
+console.log(events)
+
+return (
+<section className="event-section">
+
+
+    {events.map(event => (
+    <EventCard
+      key={event.id}
+      title={event.title}
+      date={event.date}
+      location={event.location}
+      price={event.price}
+    />
+  ))}
       <EventCard
         title="new comggggggmit hello"
         date="September 13, 2026"
@@ -30,7 +53,10 @@ const Events = () => {
         price="$30"
       />
     </section>
-  )
+)
+
+    
+  
 }
 
 export default Events
