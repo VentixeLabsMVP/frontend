@@ -1,4 +1,5 @@
 import EventCard from '../components/EventCard.jsx'
+import CreateEventModal from '../components/CreateEventModal.jsx'
 import { useEffect, useState } from "react";
 import axios from "axios";
 
@@ -6,52 +7,48 @@ import axios from "axios";
 
 const Events = () => {
   const [events, setEvents] = useState([]);
-
-  useEffect(() => {
-    axios.get("https://eventprovider-win24-cvb2h4heesbxauaj.swedencentral-01.azurewebsites.net/api/event") // byt till din riktiga URL
-      .then(res => setEvents(res.data))
-      .catch(err => console.error(err));
-  }, []);
+  const [isModalOpen, setIsModalOpen] = useState(false); 
+  const fetchEvents = () => {
+  axios.get("https://localhost:7260/api/event")
+    .then(res => setEvents(res.data))
+    .catch(err => console.error(err));
+};
+// "https://eventprovider-win24-cvb2h4heesbxauaj.swedencentral-01.azurewebsites.net/api/event"
+useEffect(() => {
+  fetchEvents();
+}, []);
     
 console.log(events)
 
 return (
-<section className="event-section">
 
+<>
+  <div className="event-header">
+    <button className="add-event-btn primary-button"
+    onClick={() => setIsModalOpen(true)}>
+      <i className="fa-solid fa-plus"></i>
+      <span>Create Event</span>
+    </button>
+  </div>
+    <CreateEventModal
+      isOpen={isModalOpen}
+      onClose={() => setIsModalOpen(false)}
+      onEventCreated={fetchEvents} 
+    />
+
+  <section className="event-section">
 
     {events.map(event => (
-    <EventCard
-  key={event.id}
-  eventname={event.eventName}
-  description={event.description}
-  price={`$${event.price}`}
-    />
-  ))}
       <EventCard
-        title="new comggggggmit hello"
-        date="September 13, 2026"
-        location="Basketorp713"
-        price="$30"
+        key={event.id}
+        id={event.id}
+        eventname={event.eventName}
+        description={event.description}
+        price={`$${event.price}`}
       />
-            <EventCard
-        title="Fruddeluxlaxen"
-        date="September 13, 2026"
-        location="Basketorp713"
-        price="$30"
-      />
-            <EventCard
-        title="Fruddeluxlaxen"
-        date="September 13, 2026"
-        location="Basketorp713"
-        price="$30"
-      />
-                  <EventCard
-        title="Fruddeluxlaxen"
-        date="September 13, 2026"
-        location="Basketorp713"
-        price="$30"
-      />
-    </section>
+    ))}
+  </section>
+  </>
 )
 
 }

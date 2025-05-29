@@ -1,17 +1,107 @@
-import {useParams} from 'react-router-dom'
+import { useParams, useNavigate } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import EditEventModal from '../components/EditEventModal';
+
+
 
 
 const EventDetails = () => {
-const { id } = useParams();//get the id from URL
+  const { id } = useParams();
+  const navigate = useNavigate();
+  
+  const [event, setEvent] = useState(null);
+  const [deleted, setDeleted] = useState(false);
+  const [updated, setUpdated] = useState(false);
+  const [isEditOpen, setIsEditOpen] = useState(false);
 
+  useEffect(() => {
+    fetch(`https://localhost:7260/api/event/${id}`)
+    .then(res => res.json())
+    .then(data => setEvent(data))
+    .catch(err => console.error(err));
+  }, [id]);
+  
+  // "https://localhost:7260/api/event"
+  // `https://eventprovider-win24-cvb2h4heesbxauaj.swedencentral-01.azurewebsites.net/api/event/${id}`
+  const handleDelete = async () => {
+    try {
+      const res = await fetch(`https://localhost:7260/api/event/${id}`, {
+        method: 'DELETE'
+      });
+      if (res.ok) {
+        setDeleted(true);
+        setTimeout(() => navigate('/events'), 1500); // navigera efter 1.5s
+      } else {
+        console.error("Failed to delete");
+      }
+    } catch (err) {
+      console.error("Error deleting event", err);
+    }
+  };
 
-return (
-    <div className="event-details">
-      <h2>React Meetup</h2>
-      <p>Plats: Stockholm</p>
-      <p>Datum: 2025-06-01</p>
-      <p>Beskrivning: En träff för React-utvecklare</p>
+    const handleUpdate = async () => {
+        const updatedEvent = {
+      eventName: event.eventName,
+      description: event.description,
+      price: event.price,
+      startDate: event.startDate,
+      endDate: event.endDate,
+      address: {
+        streetName: event.address.streetName,
+        city: event.address.city
+      }
+    };
+    try {
+      const res = await fetch(`https://localhost:7260/api/event/${id}`, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(updatedEvent)
+      });
+      if (res.ok) {
+        setUpdated(true);
+        setTimeout(() => navigate('/events'), 1500);
+      } else {
+        console.error("Failed to update");
+      }
+    } catch (err) {
+      console.error("Error updating event", err);
+    }
+  };
+
+  if (deleted) return <p>Event was removed, you will be redirected...</p>;
+  if (!event) return <p>Loading...</p>;
+  
+  return (
+    <div className="event-details-card">
+      <EditEventModal
+        isOpen={isEditOpen}
+        onClose={() => setIsEditOpen(false)}
+        eventData={event}
+        onEventUpdated={() => {
+          setIsEditOpen(false);
+          navigate('/events'); // eller ladda om/visa meddelande
+        }}
+      />
+      <div className="event-details-header">
+      <button className="delete-button" onClick={handleDelete}>
+        <span>Delete</span>
+      </button>
+      <button className="update-button" onClick={() => setIsEditOpen(true)}>
+        <span>Update</span>
+      </button>
+      </div>
+      <div className="event-details">
+        <h2>{event.eventName}</h2>
+        <p>Plats: {event.address.city}</p>
+        <p>Gata: {event.address.streetName}</p>
+        <p>Datum: {event.startDate} - {event.endDate}</p>
+        <p>Beskrivning: {event.description}</p>
+        <p>Pris: ${event.price}</p>
+      </div>
     </div>
+
   );
 };
 
