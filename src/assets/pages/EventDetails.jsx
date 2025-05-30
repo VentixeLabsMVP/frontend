@@ -11,7 +11,6 @@ const EventDetails = () => {
   
   const [event, setEvent] = useState(null);
   const [deleted, setDeleted] = useState(false);
-  const [updated, setUpdated] = useState(false);
   const [isEditOpen, setIsEditOpen] = useState(false);
 
   useEffect(() => {
@@ -39,36 +38,7 @@ const EventDetails = () => {
     }
   };
 
-    const handleUpdate = async () => {
-        const updatedEvent = {
-      eventName: event.eventName,
-      description: event.description,
-      price: event.price,
-      startDate: event.startDate,
-      endDate: event.endDate,
-      address: {
-        streetName: event.address.streetName,
-        city: event.address.city
-      }
-    };
-    try {
-      const res = await fetch(`https://localhost:7260/api/event/${id}`, {
-        method: 'PUT',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(updatedEvent)
-      });
-      if (res.ok) {
-        setUpdated(true);
-        setTimeout(() => navigate('/events'), 1500);
-      } else {
-        console.error("Failed to update");
-      }
-    } catch (err) {
-      console.error("Error updating event", err);
-    }
-  };
+
 
   if (deleted) return <p>Event was removed, you will be redirected...</p>;
   if (!event) return <p>Loading...</p>;

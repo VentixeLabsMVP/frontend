@@ -18,8 +18,8 @@ const EditEventModal = ({ isOpen, onClose, onEventUpdated, eventData }) => {
     setEventName(eventData.eventName || "");
     setDescription(eventData.description || "");
     setPrice(eventData.price || "");
-    setStartDate(eventData.startDate || "");
-    setEndDate(eventData.endDate || "");
+    setStartDate(eventData.startDate?.split("T")[0] || "");// need this so form can show correct date
+    setEndDate(eventData.endDate?.split("T")[0] || "");// need this so form can show correct date
     setStreetName(eventData.address?.streetName || "");
     setCity(eventData.address?.city || "");
   }
@@ -35,9 +35,9 @@ const updatedEvent = {
   price: parseFloat(price),
   startDate,
   endDate,
-  addressId: eventData.address?.id, // ⬅️ om backend kräver detta
+  addressId: eventData.address?.id, 
   address: {
-    id: eventData.address?.id, // ⬅️ viktigt om du uppdaterar adressen
+    id: eventData.address?.id, 
     streetName,
     city
   }
