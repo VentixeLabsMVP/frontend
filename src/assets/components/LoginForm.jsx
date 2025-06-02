@@ -1,35 +1,39 @@
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom'; 
+import { useNavigate } from 'react-router-dom';
 
 
-const SignUpForm = () => {
+
+
+
+const LoginForm = () => {
   // creates a statevariable containing empty email and password
   const [form, setForm] = useState({ email: '', password: '' });
   const navigate = useNavigate();
-  const goToLogin = () => {
-  navigate('/account/login');
-  };  
-
   //updates the correct fields in form
   const handleChange = (e) => {
     // ... is a spread operator that copys key-value-pairs. so you can update specifik fields
     setForm({ ...form, [e.target.name]: e.target.value });
   };
-
+  const goToRegister = () => {
+    navigate('/account/signup');
+  };
  const handleSubmit = async (e) => {
   e.preventDefault();
 
   try {
-    const res = await fetch('https://localhost:7093/api/account/signup', {
+    const res = await fetch('https://localhost:7124/api/auth/login', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(form)
     });
 
     if (res.ok) {
-      console.log('Registration was successfull');
+      console.log('Login was successfull');
+      navigate('/events'); // eller var du visar events
+      
+
     } else {
-      console.error('Registration was NOT successfull');
+      console.error('Login was NOT successfull');
     }
   } catch (error) {
     console.error('Network Error:', error);
@@ -38,9 +42,9 @@ const SignUpForm = () => {
 
   return (
     <form onSubmit={handleSubmit} className="signup-form">
-      <h2>Create Account</h2>
+      <h2>Login to account</h2>
       <div className="form-group">
-        <label htmlFor="email">E-post</label>
+        <label htmlFor="email">Email</label>
         <input
           type="email"
           name="email"
@@ -62,11 +66,11 @@ const SignUpForm = () => {
       />
       </div>
 
-      <button type="submit" className="signup-btn">Register</button>
+      <button type="submit" className="signup-btn">Log In</button>
 
-      <button type="button" className="signup-btn" onClick={goToLogin}>Already have an account? Log In</button>
+      <button type="button" className="signup-btn" onClick={goToRegister}>Sign Up</button>
     </form>
   );
 };
 
-export default SignUpForm;
+export default LoginForm;

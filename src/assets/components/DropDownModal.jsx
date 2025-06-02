@@ -1,8 +1,11 @@
-import { useEffect, useState } from "react";
-
+import { useNavigate } from "react-router-dom";
 
 const DropDownMenuModal = ({ isOpen, onClose }) => {
+const navigate = useNavigate();
 
+  const handleLogout = () => {
+    navigate('/account/login');
+  };
 
   return (
   <div className={`DropDownMenuModal ${isOpen ? "active" : ""}`} style={{ pointerEvents: isOpen ? "auto" : "none" }}>
@@ -24,7 +27,7 @@ const DropDownMenuModal = ({ isOpen, onClose }) => {
 
 
         <div className="menu-log-out-container">
-          <button className="drop-down-btn">
+            <button className="drop-down-btn" onClick={handleLogout}>
             <span className="logout-text">LogOut</span>
           </button>
         </div>

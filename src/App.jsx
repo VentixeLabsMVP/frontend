@@ -5,7 +5,7 @@ import Portallayout from './assets/layouts/Portallayout'
 import Events from './assets/pages/Events'
 import EventDetails from './assets/pages/EventDetails'
 
-
+import LoginPage from './assets/pages/LoginPage'
 import SignupPage from './assets/pages/SignUp';
 // import LoginPage from './assets/pages/Login';
 // import VerifyPage from './assets/pages/Verify';
@@ -22,10 +22,11 @@ function App() {
       </Route>
 
       {/* authportal */}
-      <Route path="/auth" element={<CenterLayout />}>
+      <Route path="/account" element={<CenterLayout />}>
         {/* <Route path="login" element={<LoginPage />} /> */}
         <Route path="signup" element={<SignupPage />} />
         {/* <Route path="verify" element={<VerifyPage />} /> */}
+        <Route path="login" element={<LoginPage />} />
       </Route>
     </Routes>
   )
