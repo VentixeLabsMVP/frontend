@@ -771,17 +771,6 @@ transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out, box-shadow 0.5
   outline: none;
 }
 
-
-.event-details-card{
-  background-color: var(--grey-60);
-  border-radius: 14px;
-  height: 800px;
-  padding: 1rem;
-  width: 800px
-}
-
-
-
 /* edit modal */
 .edit-event-modal {
   position: fixed;
@@ -869,10 +858,184 @@ transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out, box-shadow 0.5
 }
 
 
+
+/* event page */
 .event-details-card{
-  background-color: var(--grey-60);
-  border-radius: 14px;
-  height: 800px;
+  background-color: var(--grey-10);
+  border-radius: 16px;
   padding: 1rem;
-  width: 800px
 }
+
+.event-details-header{
+  display:flex;
+  justify-content: flex-end;
+  gap: 0.3rem;
+}
+
+.image-area {
+  background-color: var(--cool-grey-40);
+  border-radius: 1rem 1rem 0rem 0rem;
+  margin-top: 1rem;
+  width: 100%;
+  height: 100px;
+}
+
+.event-details {
+  background-color: var(--grey-10);
+  padding: 1rem;
+  display: grid;
+  row-gap: 1rem;
+}
+
+.section-divider::before {
+  content: "";
+  display: block;
+  height: 1px;
+  width: 100%;
+  background-color: var(--grey-30);
+}
+.event-location {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+
+.event-date {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.event-ticket-info {
+  display: flex;
+  justify-content: flex-end;
+}
+.event-ticket-info span {
+  font-family: var(--font);
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--primary-100);
+}
+.about-event {
+  display: grid;
+  gap:1rem;
+  span {
+    font-weight: 600;
+    color: var(--secondary-100);
+  }
+  p {
+    color: var(--grey-90);
+  }
+}
+
+.event-delete-btn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 12px;
+    border: transparent;
+    gap: 1rem;
+    background-color: var(--cool-grey-20);
+    color: var(--secondary-100);
+    font-size: 1rem;
+    font-family: var(--font);
+    border-color: var(--cool-grey-20);
+    padding: 0.8rem 2rem;
+    margin-bottom: 1rem;
+    &:hover, &:focus{
+    background-color: var(--primary-90);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+  }
+}
+.event-update-btn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 12px;
+    border: transparent;
+    gap: 1rem;
+    background-color: var(--cool-grey-20);
+    color: var(--secondary-100);
+    font-size: 1rem;
+    font-family: var(--font);
+    border-color: var(--cool-grey-20);
+    padding: 0.8rem 2rem;
+    margin-bottom: 1rem;
+
+    &:hover, &:focus{
+    background-color: var(--primary-90);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+  }
+}
+
+.signup-wrapper {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100dvw;
+  height: 100dvh;
+  background: var(--primary-90-opacity);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10000;
+}
+
+.signup-form {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap:1rem;
+  width: 90%;
+  max-width: 700px;
+  background: rgba(255, 255, 255, 0.28);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 20px;
+  backdrop-filter: blur(15px);
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.3);
+  padding: 40px;
+  position: relative;
+  z-index: 999;
+  transition: box-shadow 0.3s ease-in-out;
+}
+.signup-form:hover,
+.signup-form:focus-within {
+  box-shadow: 0 0 10px var(--primary-50);
+}
+
+.form-group input {
+  padding: 0.8rem 1rem;
+  border: 1px solid var(--input-border-color);
+  border-radius: 8px;
+  background-color: var(--input-background-color);
+  color: var(--input-text-color);
+  font-family: var(--font);
+  transition: border-color 0.3s ease;
+}
+
+.form-group input:focus{
+  border-color: var(--input-border-focus-color);
+  outline: none;
+}
+
+.signup-btn {
+ width: 100%;
+ height: 45px;
+ background: #162938;
+ border: none;
+ outline: none;
+ border-radius: 6px;
+ cursor: pointer;
+ font-size: 1em;
+ color: #fff;
+ font-weight: 500;
+ transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+.signup-btn:focus-within,
+.signup-btn:hover{
+  box-shadow: 0 0 10px var(--primary-50);
+  transform: scale(1.05);
+  }

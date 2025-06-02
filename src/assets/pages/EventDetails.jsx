@@ -13,6 +13,13 @@ const EventDetails = () => {
   const [deleted, setDeleted] = useState(false);
   const [isEditOpen, setIsEditOpen] = useState(false);
 
+  const formatDate = (date) =>
+  new Date(date).toLocaleDateString("en-US", {
+    year: "numeric",
+    month: "long",
+    day: "numeric"
+  });
+
   useEffect(() => {
     fetch(`https://localhost:7260/api/event/${id}`)
     .then(res => res.json())
@@ -51,24 +58,44 @@ const EventDetails = () => {
         eventData={event}
         onEventUpdated={() => {
           setIsEditOpen(false);
-          navigate('/events'); // eller ladda om/visa meddelande
+          navigate('/events');
         }}
       />
       <div className="event-details-header">
-      <button className="delete-button" onClick={handleDelete}>
+      <button className="event-delete-btn" onClick={handleDelete}>
         <span>Delete</span>
       </button>
-      <button className="update-button" onClick={() => setIsEditOpen(true)}>
+      <button className="event-update-btn" onClick={() => setIsEditOpen(true)}>
         <span>Update</span>
       </button>
       </div>
+      <div className="section-divider"></div> 
+      <div className="image-area"></div>
       <div className="event-details">
         <h2>{event.eventName}</h2>
-        <p>Plats: {event.address.city}</p>
-        <p>Gata: {event.address.streetName}</p>
-        <p>Datum: {event.startDate} - {event.endDate}</p>
-        <p>Beskrivning: {event.description}</p>
-        <p>Pris: ${event.price}</p>
+        
+        <div className="event-date">
+          <i className="fa-light fa-calendar-plus"></i>
+          <p>Date: {formatDate(event.startDate)} – {formatDate(event.endDate)}</p>
+        </div>
+        <div className="event-location">
+          <i className="fa-light fa-location-dot"></i>
+          <p>Plats: {event.address.city}</p>
+          <p>Gata: {event.address.streetName}</p>
+        </div>
+        <div className="section-divider"></div>
+
+        
+        <div className="event-ticket-info">
+          <span>${event.price}</span>
+        </div>
+        <div className="section-divider"></div> 
+
+        <div className="about-event">
+          <span>About Event</span>
+          <p> {event.description}</p>
+        </div>
+
       </div>
     </div>
 
