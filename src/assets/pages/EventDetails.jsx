@@ -1,7 +1,7 @@
 import { useParams, useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import EditEventModal from '../components/EditEventModal';
-
+import BookingBtn from '../components/BookingBtn';
 
 
 
@@ -97,6 +97,7 @@ const EventDetails = () => {
         </div>
 
       </div>
+      {event && <BookingBtn eventId={event.id} />}
     </div>
 
   );

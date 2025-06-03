@@ -6,6 +6,7 @@ const SignUpForm = () => {
   // creates a statevariable containing empty email and password
   const [form, setForm] = useState({ email: '', password: '' });
   const navigate = useNavigate();
+  
   const goToLogin = () => {
   navigate('/account/login');
   };  
@@ -19,7 +20,7 @@ const SignUpForm = () => {
  const handleSubmit = async (e) => {
   e.preventDefault();
 
-  try {
+ try {
     const res = await fetch('https://localhost:7093/api/account/signup', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -27,12 +28,21 @@ const SignUpForm = () => {
     });
 
     if (res.ok) {
-      console.log('Registration was successfull');
+      navigate('/account/verify', { state: { email: form.email } });
     } else {
-      console.error('Registration was NOT successfull');
+      const data = await res.json();
+
+      const userAlreadyExists = Array.isArray(data)
+        && data.some(e => e.code === 'DuplicateUserName');
+
+      if (userAlreadyExists) {
+        navigate('/account/verify', { state: { email: form.email } });
+      } else {
+        console.error('Registration failed:', data);
+      }
     }
   } catch (error) {
-    console.error('Network Error:', error);
+    console.error('Network or server error:', error);
   }
 };
 

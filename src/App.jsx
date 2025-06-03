@@ -8,7 +8,7 @@ import EventDetails from './assets/pages/EventDetails'
 import LoginPage from './assets/pages/LoginPage'
 import SignupPage from './assets/pages/SignUp';
 // import LoginPage from './assets/pages/Login';
-// import VerifyPage from './assets/pages/Verify';
+import VerifyPage from './assets/pages/VerifyPage';
 function App() {
 
 
@@ -27,6 +27,8 @@ function App() {
         <Route path="signup" element={<SignupPage />} />
         {/* <Route path="verify" element={<VerifyPage />} /> */}
         <Route path="login" element={<LoginPage />} />
+
+        <Route path="verify" element={<VerifyPage />} />
       </Route>
     </Routes>
   )

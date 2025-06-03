@@ -17,28 +17,28 @@ const LoginForm = () => {
   const goToRegister = () => {
     navigate('/account/signup');
   };
- const handleSubmit = async (e) => {
-  e.preventDefault();
+const handleSubmit = async (e) => {
+    e.preventDefault();
 
-  try {
-    const res = await fetch('https://localhost:7124/api/auth/login', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(form)
-    });
+    try {
+      const res = await fetch('https://localhost:7124/api/auth/login', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(form)
+      });
 
-    if (res.ok) {
-      console.log('Login was successfull');
-      navigate('/events'); // eller var du visar events
-      
-
-    } else {
-      console.error('Login was NOT successfull');
+      if (res.ok) {
+        const data = await res.json(); 
+        localStorage.setItem('token', data.token);
+        console.log('Login successful, token:', data.token);
+        navigate('/events');
+      } else {
+        console.error('Login was NOT successful');
+      }
+    } catch (error) {
+      console.error('Network Error:', error);
     }
-  } catch (error) {
-    console.error('Network Error:', error);
-  }
-};
+  };
 
   return (
     <form onSubmit={handleSubmit} className="signup-form">
