@@ -27,7 +27,7 @@ const eventData = {
 
 
   try {
-    const response = await fetch("https://localhost:7260/api/event", {
+    const response = await fetch("https://eventprovider-win24-cvb2h4heesbxauaj.swedencentral-01.azurewebsites.net/api/event", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"

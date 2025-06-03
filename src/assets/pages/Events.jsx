@@ -9,7 +9,7 @@ const Events = () => {
   const [events, setEvents] = useState([]);
   const [isModalOpen, setIsModalOpen] = useState(false); 
   const fetchEvents = () => {
-  axios.get("https://localhost:7260/api/event")
+  axios.get("https://eventprovider-win24-cvb2h4heesbxauaj.swedencentral-01.azurewebsites.net/api/event")
     .then(res => setEvents(res.data))
     .catch(err => console.error(err));
 };

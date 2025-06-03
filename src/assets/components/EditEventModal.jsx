@@ -45,7 +45,7 @@ const updatedEvent = {
 
 
   try {
-    const response = await fetch(`https://localhost:7260/api/event/${eventData.id}`, {
+    const response = await fetch(`https://eventprovider-win24-cvb2h4heesbxauaj.swedencentral-01.azurewebsites.net/api/event/${id}${eventData.id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json"

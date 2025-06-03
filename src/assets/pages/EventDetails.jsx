@@ -21,7 +21,7 @@ const EventDetails = () => {
   });
 
   useEffect(() => {
-    fetch(`https://localhost:7260/api/event/${id}`)
+    fetch(`https://eventprovider-win24-cvb2h4heesbxauaj.swedencentral-01.azurewebsites.net/api/event/${id}`)
     .then(res => res.json())
     .then(data => setEvent(data))
     .catch(err => console.error(err));
@@ -31,7 +31,7 @@ const EventDetails = () => {
   // `https://eventprovider-win24-cvb2h4heesbxauaj.swedencentral-01.azurewebsites.net/api/event/${id}`
   const handleDelete = async () => {
     try {
-      const res = await fetch(`https://localhost:7260/api/event/${id}`, {
+      const res = await fetch(`https://eventprovider-win24-cvb2h4heesbxauaj.swedencentral-01.azurewebsites.net/api/event/${id}`, {
         method: 'DELETE'
       });
       if (res.ok) {

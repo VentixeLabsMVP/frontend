@@ -24,7 +24,7 @@ const VerifyForm = ({ email }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const fullCode = code.join('');
-    const res = await fetch('https://localhost:7093/api/account/confirm', {
+    const res = await fetch('https://accountprovider.azurewebsites.net/api/account/confirm', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ email, code: fullCode })

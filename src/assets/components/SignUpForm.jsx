@@ -21,7 +21,7 @@ const SignUpForm = () => {
   e.preventDefault();
 
  try {
-    const res = await fetch('https://localhost:7093/api/account/signup', {
+    const res = await fetch('https://accountprovider.azurewebsites.net/api/account/signup', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(form)
