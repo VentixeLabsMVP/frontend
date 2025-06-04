@@ -38,7 +38,7 @@ const VerifyForm = ({ email }) => {
 
   return (
     <form onSubmit={handleSubmit} className="signup-form">
-      <h2>Enter Verification Code</h2>
+      <h2 className="register-account">Enter Verification Code</h2>
       <div className="code-inputs">
         {code.map((digit, i) => (
           <input

@@ -13,7 +13,7 @@ const SignUpForm = () => {
 
   //updates the correct fields in form
   const handleChange = (e) => {
-    // ... is a spread operator that copys key-value-pairs. so you can update specifik fields
+    // ... is a spread operator that copys key-value-pairs. so i can update specifik fields
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
@@ -48,9 +48,9 @@ const SignUpForm = () => {
 
   return (
     <form onSubmit={handleSubmit} className="signup-form">
-      <h2>Create Account</h2>
+      <h2 className="register-account">Register Account Please</h2>
       <div className="form-group">
-        <label htmlFor="email">E-post</label>
+        <label htmlFor="email">Email</label>
         <input
           type="email"
           name="email"

@@ -1,7 +1,11 @@
 import { useNavigate } from "react-router-dom";
+import { useState } from "react";
+
 
 const BookingBtn = ({ eventId }) => {
   const navigate = useNavigate();
+  const [message, setMessage] = useState("");
+  const [isError, setIsError] = useState(false);
 
 const handleBooking = async () => {
   const token = localStorage.getItem("token");
@@ -18,13 +22,28 @@ const handleBooking = async () => {
 body: JSON.stringify({ EventId: eventId.toString() })// this.......
   });
 
-  res.ok ? alert("Reservation success!") : alert("Reservation failed");
-};
+    if (res.ok) {
+      setMessage("Reservation success!");
+      setIsError(false);
+    } else if (res.status === 401) {
+      navigate("/account/login");
+    } else {
+      setMessage("Reservation failed");
+      setIsError(true);
+    }
+  };
 
   return (
-    <button className="event-book-btn" onClick={handleBooking}>
-      Book Event
-    </button>
+    <>
+      <button className="btn-big-boy" onClick={handleBooking}>
+        Book Event
+      </button>
+      {message && (
+        <span className={isError ? "error-message" : "success-message"}>
+          {message}
+        </span>
+      )}
+    </>
   );
 };
 

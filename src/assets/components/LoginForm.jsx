@@ -2,9 +2,6 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 
-
-
-
 const LoginForm = () => {
   // creates a statevariable containing empty email and password
   const [form, setForm] = useState({ email: '', password: '' });
@@ -42,7 +39,7 @@ const handleSubmit = async (e) => {
 
   return (
     <form onSubmit={handleSubmit} className="signup-form">
-      <h2>Login to account</h2>
+      <h2 className="register-account">Login to account</h2>
       <div className="form-group">
         <label htmlFor="email">Email</label>
         <input
