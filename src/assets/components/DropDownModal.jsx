@@ -27,7 +27,7 @@ const navigate = useNavigate();
 
 
         <div className="menu-log-out-container">
-            <button className="drop-down-btn" onClick={handleLogout}>
+            <button className="btn-big-boy" onClick={handleLogout}>
             <span className="logout-text">LogOut</span>
           </button>
         </div>

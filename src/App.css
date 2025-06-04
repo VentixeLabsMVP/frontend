@@ -1053,12 +1053,26 @@ box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
 }
 
 .code-box {
-  width: 40px;
-  height: 40px;
+  width: 60px;
+  height: 60px;
   text-align: center;
+  border: 2px solid var(--grey-30);
   font-size: 1.5rem;
+  border-radius: 4px; 
 }
 
+.code-box:hover,
+.code-box:focus {
+  border-color: var(--primary-100);
+  outline: none; /* tar bort standardfokus */
+}
+@media (max-width: 600px) {
+  .code-box {
+    width: 40px;
+    height: 40px;
+    font-size: 1.2rem;
+  }
+}
 /* booking button  */
 
 .error-message {
@@ -1088,7 +1102,6 @@ box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
 }
 
 .btn-big-boy{
-  .signup-btn {
  width: 100%;
  height: 55px;
  background: var(--primary-100);
@@ -1108,4 +1121,3 @@ box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
   box-shadow: 0 0 10px var(--primary-30);
   transform: scale(1.05);
   }
-}
