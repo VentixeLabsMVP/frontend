@@ -30,7 +30,7 @@ const VerifyForm = ({ email }) => {
       body: JSON.stringify({ email, code: fullCode })
     });
       if (res.ok) {
-    navigate('/account/login'); // om verifiering lyckas
+    navigate('/account/login'); // if verificaation is success
   } else {
     console.error('Verification failed');
   }
