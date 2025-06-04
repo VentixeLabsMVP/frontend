@@ -1098,6 +1098,7 @@ box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
 .register-account {
   display: inline-flex;
   justify-self: center;
+  flex-wrap: wrap;
   margin-bottom: 2rem;
 }
 
