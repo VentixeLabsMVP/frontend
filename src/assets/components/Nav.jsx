@@ -48,7 +48,7 @@ const Nav = ({onHamburgerClick}) => {
         </div>
       </div>
       <div className="log-out-container">
-        <PrimaryButton text="Log Out" onClick={() => {}} />
+        <PrimaryButton text="Log Out" onClick={onHamburgerClick} />
       </div>
     </nav>
   )
