@@ -463,8 +463,37 @@ footer {
   .event-card-main{
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
+    gap: 0.7rem;
   }
+  .event-card-main-startdate{
+    color: var(--grey-70);
+  }
+  .event-card-main-eventname{
+    color: var(--grey-100);
+    font-weight: 600;
+  }
+.icon-city{
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+.icon-city i {
+  color: var(--grey-50)
+}
+
+
+.event-card-main-city{
+  color: var(--grey-80);
+}  
+.event-card-main-price{
+  display:flex;
+  margin-left: auto;
+    font-family: var(--font);
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--primary-100);
+}
+
 
   .event-card-footer{
     display: flex;

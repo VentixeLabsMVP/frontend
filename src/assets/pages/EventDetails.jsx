@@ -80,8 +80,8 @@ const EventDetails = () => {
         </div>
         <div className="event-location">
           <i className="fa-light fa-location-dot"></i>
-          <p>Plats: {event.address.city}</p>
-          <p>Gata: {event.address.streetName}</p>
+          <p>Place: {event.address.city}</p>
+          <p>Street: {event.address.streetName}</p>
         </div>
         <div className="section-divider"></div>
 

@@ -42,8 +42,9 @@ return (
       <EventCard
         key={event.id}
         id={event.id}
+        startDate={event.startDate}
         eventname={event.eventName}
-        description={event.description}
+        city={event.address.city}
         price={`$${event.price}`}
       />
     ))}
