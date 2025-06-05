@@ -4,7 +4,7 @@ import CenterLayout from './assets/layouts/CenterLayout'
 import Portallayout from './assets/layouts/Portallayout'
 import Events from './assets/pages/Events'
 import EventDetails from './assets/pages/EventDetails'
-
+import NotEvents from './assets/pages/NotEvents'
 import LoginPage from './assets/pages/LoginPage'
 import SignupPage from './assets/pages/SignUp';
 // import LoginPage from './assets/pages/Login';
@@ -19,6 +19,7 @@ function App() {
         <Route index element={<Events />} />
         <Route path="events" element={<Events />} />
         <Route path="/events/:id" element={<EventDetails />} />
+        <Route path="not-events" element={<NotEvents />} />
       </Route>
 
       {/* authportal */}

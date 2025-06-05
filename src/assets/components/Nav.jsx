@@ -41,7 +41,7 @@ const Nav = ({onHamburgerClick}) => {
           <i className="fa-solid fa-ticket nav-icon"></i>
           <span className="nav-text">Events</span>
         </NavLink>
-        <NavLink to="/dummy" end className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}>
+        <NavLink to="/not-events" end className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}>
           <i className="fa-solid fa-ticket nav-icon"></i>
           <span className="nav-text">Not Events</span>
         </NavLink>
